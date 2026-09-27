@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contoh E-mel · MISI MATH A+</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../gaya.css">
+<link rel="stylesheet" href="demo.css">
+</head>
+<body>
+<main>
+<section class="tight" style="padding-top:36px">
+  <div class="wrap">
+    <p class="demo-note" style="max-width:680px;margin:0 auto">Ini rupa e-mel yang pembeli terima selepas bayar. Teks ni boleh disalin ke sistem e-mel automatik anda.</p>
+    <div class="mail">
+      <div class="mail-h">
+        <h3 id="subj"></h3>
+        <div class="meta"><span class="ad-av" style="width:32px;height:32px;font-size:.7rem">A+</span><span><b>MISI MATH A+</b> &lt;hello@misimath.my&gt;<br>kepada <span id="to"></span></span></div>
+      </div>
+      <div class="mail-top">MISI MATH <b>A+</b></div>
+      <div class="mail-b" id="body"></div>
+    </div>
+  </div>
+</section>
+</main>
+<script src="demo.js"></script>
+<script>
+barDemo(5);
+const k = kodP(), P = pesanan();
+const nama = baca("mm_nama", "Puan Demo"), order = baca("mm_order", "MM-123456");
+document.getElementById("subj").textContent = `✅ ${P.nama} anda sedia dimuat turun (${order})`;
+document.getElementById("to").textContent = baca("mm_emel", "demo@contoh.my");
+const mula = P.adaTopik
+  ? "Mula dengan Panduan Ibu Bapa (Bonus 5), kemudian minta anak buat blok pertama Topik 1: Transformasi. Cuma 10 soalan, lebih kurang 15 minit."
+  : "Baca Teknik Menjawab & Pengurusan Masa dulu, kemudian tetapkan masa untuk anak jawab Set 1 macam hari peperiksaan sebenar.";
+document.getElementById("body").innerHTML = `
+  <p>Assalamualaikum dan salam sejahtera ${nama},</p>
+  <p>Terima kasih kerana memilih MISI MATH A+. Pembayaran <b>RM${P.harga}</b> untuk pesanan <b>${order}</b> telah berjaya.</p>
+  <p>Semua fail anda ada dalam satu halaman:</p>
+  <a class="mbtn" href="muat-turun.html${qs()}">Muat turun ${P.nama} + ${P.bonus.length} bonus →</a>
+  <p><b>Apa yang anda dapat:</b></p>
+  <ul>${P.utama.map(u => `<li>${u.nama}</li>`).join("")}${P.bonus.map((b, i) => `<li>Bonus ${i + 1}: ${HADIAH[b].nama}</li>`).join("")}</ul>
+  <p><b>Cadangan untuk malam ini:</b> ${mula}</p>
+  <p>Pautan muat turun ini untuk kegunaan keluarga anda. Setiap PDF bertera air nama pembeli.</p>
+  <p class="sig">Semoga berjaya,<br>Pasukan MISI MATH A+<br><small>Ada masalah muat turun? Balas e-mel ini.</small></p>`;
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Terima Kasih · MISI MATH A+</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../gaya.css">
+<link rel="stylesheet" href="demo.css">
+</head>
+<body>
+<header class="nav"><div class="wrap"><span class="logo">MISI MATH <b>A+</b></span><small>Pesanan berjaya</small></div></header>
+<main>
+<section class="center" style="padding-top:56px">
+  <div class="narrow">
+    <div class="okmark">✓</div>
+    <h1 style="font-size:clamp(1.8rem,4.6vw,2.8rem)" id="h">Terima kasih!</h1>
+    <p class="lede mt">Pembayaran anda berjaya. Pautan muat turun dah dihantar ke <b id="emel"></b>. Semak juga folder <i>Spam</i> atau <i>Promosi</i> kalau tak jumpa dalam 5 minit.</p>
+
+    <div class="card receipt">
+      <div class="sum-row"><span>No. pesanan</span><b id="order"></b></div>
+      <div class="sum-row"><span>Produk</span><b id="prod"></b></div>
+      <div class="sum-row"><span>Bonus</span><b id="bon"></b></div>
+      <div class="sum-row"><span>Jumlah dibayar</span><b id="tot"></b></div>
+    </div>
+
+    <div class="cta-wrap">
+      <a class="btn btn-gold btn-big" id="dl" href="#">Muat turun sekarang <span>→</span></a>
+      <a class="decline" id="mail" href="#" style="display:inline-block;margin-top:16px;color:var(--soft)">Lihat contoh e-mel yang pembeli terima</a>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <h2 style="margin-top:64px">Apa yang perlu dibuat malam ini</h2>
+    <ul class="next" id="next"></ul>
+    <div class="xsell" id="xsell"></div>
+  </div>
+</section>
+</main>
+<script src="demo.js"></script>
+<script>
+barDemo(4);
+const k = kodP(), P = pesanan();
+const nama = baca("mm_nama", "Puan Demo");
+document.getElementById("h").textContent = "Terima kasih, " + nama + "!";
+document.getElementById("emel").textContent = baca("mm_emel", "demo@contoh.my");
+document.getElementById("order").textContent = baca("mm_order", "MM-123456");
+document.getElementById("prod").innerHTML = P.Ps.map(x => `${x.nama} · RM${x.harga}`).join("<br>");
+document.getElementById("bon").textContent = P.bonus.length + " PDF percuma";
+document.getElementById("tot").textContent = "RM" + P.harga + (P.Ps.length > 1 ? " (2 bayaran)" : "");
+document.getElementById("dl").href = "muat-turun.html" + qs();
+document.getElementById("mail").href = "emel.html" + qs();
+
+const langkah = P.adaTopik
+  ? [["Baca Panduan Ibu Bapa (10 minit)", "Bonus 5 terangkan cara pantau anak tanpa perlu mengajar."],
+     ["Cetak Topik 1: Transformasi", "Mula dengan topik paling banyak markah dalam Radar."],
+     ["Anak buat blok pertama", "10 soalan objektif tahap ●○○, lebih kurang 15 minit. Semak dengan skema dan tulis skor."]]
+  : [["Baca Teknik Menjawab & Pengurusan Masa", "Terutama pelan masa K1 (90 minit) dan K2 (150 minit)."],
+     ["Cetak Set 1", "Tetapkan tarikh dan masa, macam hari peperiksaan sebenar."],
+     ["Selepas jawab, semak dengan skema", "Padankan kesilapan dengan 50 Perangkap Markah (Bonus 2)."]];
+document.getElementById("next").innerHTML = langkah.map(([h, p], i) =>
+  `<li class="step"><div class="n">${i + 1}</div><div><h3>${h}</h3><p>${p}</p></div></li>`).join("");
+
+// Cadangan hanya untuk pembeli Set Ramalan sahaja; pembeli bank soalan dah nampak tawaran Set Ramalan sejurus selepas bayaran.
+const xs = document.getElementById("xsell");
+if (P.adaTopik) xs.remove();
+else xs.innerHTML = `<div class="stamp" style="position:static;transform:rotate(-6deg);width:74px;height:74px"><div><span style="font-size:1.4rem">A+</span><small>MISI</small></div></div>
+     <div><h3>Anak hilang markah pada topik yang sama?</h3><p>13 Topik Panas melatih ikut topik, dari soalan asas sampai sukar, dengan 5 bonus. RM39.</p>
+     <a class="btn btn-gold" href="../13-topik/?demo=1">Lihat 13 Topik Panas</a></div>`;
+</script>
+</body>
+</html>

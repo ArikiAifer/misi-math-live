@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MISI MATH A+ · Pratonton Halaman Jualan</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="gaya.css">
+<style>
+.hub{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.hcard{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--rule);border-radius:20px;overflow:hidden;text-decoration:none;transition:transform .15s,box-shadow .15s}
+.hcard:hover{transform:translateY(-3px);box-shadow:0 26px 50px -30px rgba(14,26,43,.55)}
+.hthumb{aspect-ratio:16/10;padding:22px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
+.hthumb::after{content:"A+";position:absolute;right:-8px;top:-30px;font:800 7.5rem/1 var(--f);opacity:.12}
+.hthumb b{font:800 1.5rem/1.1 var(--f);letter-spacing:-.02em}
+.hthumb small{font:700 .7rem/1.3 var(--m);letter-spacing:.1em;text-transform:uppercase;opacity:.75;margin-bottom:8px}
+.t1{background:var(--band);color:#fff}.t1 b{color:var(--gold)}
+.t2{background:var(--gold);color:#1A1300}
+.t3{background:#6B21A8;color:#fff}.t3 b{color:#FDE68A}
+.hbody{padding:20px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
+.hbody p{color:var(--soft);font-size:.95rem;flex:1}
+.hbody .go{font-weight:800;font-size:.95rem}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;margin-top:44px;font:600 .8rem/1 var(--m);color:var(--soft)}
+.flow span{background:var(--paper);border:1px solid var(--rule);border-radius:999px;padding:8px 12px}
+.flow i{font-style:normal;color:#B9AF97}
+@media (max-width:900px){.hub{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap"><span class="logo">MISI MATH <b>A+</b></span><small>Pratonton · draf</small></div></header>
+<main>
+<section style="padding-top:56px">
+  <div class="wrap center">
+    <div class="eyebrow">Halaman jualan · Matematik SPM 1449</div>
+    <h1>Satu halaman, satu tawaran.</h1>
+    <p class="lede mt">Dua halaman jualan dan satu demo perjalanan pembeli dari iklan hingga muat turun. Ini draf pratonton: pautan bayaran belum dipasang.</p>
+
+    <div class="hub" style="text-align:left">
+      <a class="hcard" href="13-topik/">
+        <div class="hthumb t1"><small>Halaman jualan 1</small><b>13 Topik Panas</b></div>
+        <div class="hbody"><h3>RM39 · tambahan +RM29</h3><p>Tawaran utama untuk iklan. 13 topik = 70% markah wajib, 5 bonus, dan kotak tambahan 20 topik lagi (RM68, satu bayaran).</p><span class="go">Buka halaman →</span></div>
+      </a>
+      <a class="hcard" href="set-ramalan/">
+        <div class="hthumb t2"><small>Halaman jualan 2</small><b>Set Ramalan</b></div>
+        <div class="hbody"><h3>RM7 · RM29 · RM49 · RM79</h3><p>Kertas penuh berformat SPM, 2 bonus. Iklan berasingan, dan juga dipaparkan sejurus selepas bayaran bank soalan.</p><span class="go">Buka halaman →</span></div>
+      </a>
+      <a class="hcard" href="demo/">
+        <div class="hthumb t3"><small>Demo · 7 langkah</small><b>Perjalanan pembeli</b></div>
+        <div class="hbody"><h3>Klik dari iklan hingga muat turun</h3><p>Bayaran olok-olok (tiada wang atau data dihantar), tawaran Set Ramalan selepas bayar, terima kasih, e-mel resit, dan halaman muat turun.</p><span class="go">Mula demo →</span></div>
+      </a>
+    </div>
+
+    <div class="flow" aria-label="Aliran">
+      <span>Iklan</span><i>→</i><span>13 Topik (+RM29)</span><i>→</i><span>Bayar</span><i>→</i><span>Set Ramalan</span><i>→</i><span>Terima kasih</span><i>→</i><span>E-mel</span><i>→</i><span>Muat turun</span>
+    </div>
+  </div>
+</section>
+</main>
+<footer><div class="wrap"><span>© 2026 MISI MATH A+</span><span>Draf pratonton, tidak untuk jualan</span></div></footer>
+</body>
+</html>

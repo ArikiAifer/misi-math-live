@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bayaran (Demo) · MISI MATH A+</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../gaya.css">
+<link rel="stylesheet" href="demo.css">
+</head>
+<body>
+<header class="nav"><div class="wrap"><span class="logo">MISI MATH <b>A+</b></span><small>Bayaran selamat</small></div></header>
+<main>
+<section class="tight">
+  <div class="wrap">
+    <p class="demo-note">Ini halaman bayaran <b>olok-olok</b>. Halaman sebenar ialah halaman bayaran platform anda. Tiada data dihantar ke mana-mana dan tiada wang ditolak.</p>
+    <div class="co">
+      <form class="card" id="f" novalidate>
+        <h3>Maklumat pembeli</h3>
+        <div class="fld"><label for="nama">Nama penuh</label><input id="nama" value="Puan Demo" autocomplete="off"></div>
+        <div class="fld"><label for="emel">E-mel (PDF akan dihantar ke sini)</label><input id="emel" type="email" value="demo@contoh.my" autocomplete="off"></div>
+        <div class="fld"><label for="tel">No. telefon</label><input id="tel" value="012-000 0000" autocomplete="off"></div>
+        <h3 style="margin-top:24px">Kaedah bayaran</h3>
+        <div class="fld"><label for="bank">Perbankan dalam talian (FPX)</label>
+          <select id="bank"><option>Bank Demo A</option><option>Bank Demo B</option><option>Bank Demo C</option></select></div>
+        <button class="btn btn-gold btn-big btn-block" id="bayar" type="submit"><span class="spin"></span><span id="bayarT">Bayar</span></button>
+        <div class="secure">🔒 Sambungan selamat · PDF dihantar sebaik bayaran disahkan</div>
+      </form>
+
+      <aside class="card">
+        <h3>Ringkasan pesanan</h3>
+        <div id="sum"></div>
+        <div class="sum-tot"><span>Jumlah</span><b id="tot"></b></div>
+      </aside>
+    </div>
+  </div>
+</section>
+</main>
+<script src="demo.js"></script>
+<script>
+const k = kodP(), P = PRODUK[k], juga = kodJuga();
+barDemo(juga ? 3 : 2, juga ? "Bayaran Set Ramalan (berasingan)" : "Bayaran");
+const baris = (P.baris || [[P.nama, P.harga]]).map(([n, h]) => `<div class="sum-row"><span>${n}</span><span>RM${h}</span></div>`).join("");
+const bonus = P.bonus.map((b, i) => `<div class="sum-row bn"><span>Bonus ${i + 1}: ${HADIAH[b].nama}</span><span>PERCUMA</span></div>`).join("");
+document.getElementById("sum").innerHTML = baris + bonus;
+document.getElementById("tot").textContent = "RM" + P.harga;
+document.getElementById("bayarT").textContent = "Bayar RM" + P.harga;
+
+document.getElementById("f").addEventListener("submit", e => {
+  e.preventDefault();
+  const b = document.getElementById("bayar");
+  b.classList.add("busy"); b.disabled = true;
+  document.getElementById("bayarT").textContent = "Memproses bayaran…";
+  simpan("mm_nama", document.getElementById("nama").value.trim() || "Puan Demo");
+  simpan("mm_emel", document.getElementById("emel").value.trim() || "demo@contoh.my");
+  if (!juga) simpan("mm_order", "MM-" + (100000 + Math.floor(Math.random() * 900000)));
+  // Bank soalan → terus ke halaman jualan Set Ramalan (mod selepas bayaran). Set Ramalan → terima kasih.
+  const ke = P.jenis === "topik" ? "../set-ramalan/?demo=1&selepas=" + k : "terima-kasih.html" + qs();
+  setTimeout(() => location.href = ke, 1600);
+});
+</script>
+</body>
+</html>

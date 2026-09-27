@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Muat Turun · MISI MATH A+</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../gaya.css">
+<link rel="stylesheet" href="demo.css">
+</head>
+<body>
+<header class="nav"><div class="wrap"><span class="logo">MISI MATH <b>A+</b></span><small id="ord"></small></div></header>
+<main>
+<section class="tight center" style="padding-top:44px">
+  <div class="narrow">
+    <div class="eyebrow">Halaman muat turun</div>
+    <h1 style="font-size:clamp(1.8rem,4.4vw,2.6rem)" id="h"></h1>
+    <p class="lede mt">Simpan halaman ini. Anda boleh kembali dan muat turun semula bila-bila masa.</p>
+    <p class="demo-note mt" style="text-align:left" id="dnote"></p>
+  </div>
+  <div class="wrap">
+    <div class="files" id="files"></div>
+    <div class="cta-wrap"><a class="btn btn-line" href="./">← Kembali ke peta demo</a></div>
+  </div>
+</section>
+</main>
+<script src="demo.js"></script>
+<script>
+barDemo(6);
+const k = kodP(), P = pesanan();
+document.getElementById("ord").textContent = baca("mm_order", "MM-123456");
+document.getElementById("h").textContent = P.nama + " + " + P.bonus.length + " bonus";
+const row = (f, tag, cls, sub) => `<div class="file ${cls}"><span class="fi">${tag}</span><span><b>${f.nama}</b><small>${sub}</small></span>` +
+  (f.fail ? `<a href="${f.fail}" target="_blank" rel="noopener">Muat turun</a>` : `<span class="soon">Demo</span>`) + `</div>`;
+document.getElementById("dnote").innerHTML = TEMPATAN
+  ? "Demo tempatan: butang buka PDF sebenar (pakej v2, 20 Set Ramalan &amp; hadiah). Untuk demo, pembeli set 1–10 pun nampak buku 20 set penuh."
+  : "Demo awam: fail PDF sebenar <b>tidak</b> disertakan. Pembeli sebenar akan nampak butang muat turun di sini.";
+document.getElementById("files").innerHTML =
+  P.utama.map(u => row(u, "PDF", "", "Produk utama")).join("") +
+  P.bonus.map((b, i) => row(HADIAH[b], "B" + (i + 1), "bn", "Bonus " + (i + 1) + " · percuma")).join("");
+</script>
+</body>
+</html>
