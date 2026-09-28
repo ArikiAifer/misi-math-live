@@ -1,14 +1,14 @@
-// TUKAR DI SINI: tampal pautan bayaran BayarCash untuk setiap produk.
+// Pautan bayaran ToyyibPay (bil dicipta 27 Sep 2026).
 // Satu fail ini dikongsi oleh semua halaman jualan.
 const PAUTAN = {
-  topik13: "",   // 13 Topik Panas · RM39 (kotak tambahan TIDAK ditanda)
-  topik33: "",   // 13 Topik + 20 topik lagi · RM68 (kotak tambahan ditanda: RM39 + RM29, satu bayaran)
-  set1:    "",   // Set Ramalan · 1 set · RM7
-  set5:    "",   // Set Ramalan · 5 set · RM29
-  set10:   "",   // Set Ramalan · 10 set · RM49
-  set20:   "",   // Set Ramalan · 20 set · RM79
-  sampel:  "",   // Sampel percuma (borang e-mel / WhatsApp)
-  selesai: ""    // Halaman terima kasih / muat turun bank soalan (bila pembeli tolak Set Ramalan)
+  topik13: "https://toyyibpay.com/f7mpbuen",  // 13 Topik Panas · RM39
+  topik33: "https://toyyibpay.com/hln7ba84",  // 13 Topik + 20 topik lagi · RM68
+  set1:    "https://toyyibpay.com/ty0tt26c",  // Set Ramalan · 1 set · RM7
+  set5:    "https://toyyibpay.com/g1cb80k2",  // Set Ramalan · 5 set · RM29
+  set10:   "https://toyyibpay.com/h7szt4rj",  // Set Ramalan · 10 set · RM49
+  set20:   "https://toyyibpay.com/tl9rr1tp",  // Set Ramalan · 20 set · RM79
+  sampel:  "../demo/",                        // Sampel percuma (pratonton)
+  selesai: "../demo/terima-kasih.html"        // Halaman terima kasih
 };
 // ALIRAN: selepas bayar 13/33 Topik, tetapkan URL kembali platform bayaran kepada
 //   set-ramalan/?selepas=topik13   (atau ?selepas=topik33)
