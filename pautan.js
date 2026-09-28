@@ -25,8 +25,9 @@ const PAUTAN = {
     clearTimeout(tt); tt = setTimeout(() => toast.classList.remove("on"), 2600);
   }
   // Mod demo (dibuka dari demo/): butang beli pergi ke halaman bayaran olok-olok
-  let DEMO = /[?&]demo\b/.test(location.search);
-  try { if (DEMO) sessionStorage.setItem("mm_demo", "1"); else DEMO = sessionStorage.getItem("mm_demo") === "1"; } catch (e) {}
+  // Mod demo hanya apabila halaman itu sendiri di bawah /demo/ atau ada ?demo.
+  // Tidak disimpan dalam sesi, supaya butang beli pelanggan sebenar tidak tersasar.
+  const DEMO = /[?&]demo\b/.test(location.search) || location.pathname.indexOf("/demo/") !== -1;
   const SELEPAS = { topik13: "13 Topik Panas", topik33: "Semua 33 Topik" };
   const selepas = new URLSearchParams(location.search).get("selepas");
   const lepasBayar = Object.prototype.hasOwnProperty.call(SELEPAS, selepas) ? selepas : null;
