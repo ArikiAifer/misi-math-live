@@ -8,6 +8,7 @@ const PAUTAN = {
   set10:   "https://toyyibpay.com/h7szt4rj",  // Set Ramalan · 10 set · RM49
   set20:   "https://toyyibpay.com/tl9rr1tp",  // Set Ramalan · 20 set · RM79
   sampel:  "../demo/",                        // Sampel percuma (pratonton)
+  tambah20: "https://toyyibpay.com/hnuyoh9x", // Tambah 20 topik (+RM29) untuk pembeli 13 Topik
   selesai: "../demo/terima-kasih.html"        // Halaman terima kasih
 };
 // ALIRAN: selepas bayar 13/33 Topik, tetapkan URL kembali platform bayaran kepada
