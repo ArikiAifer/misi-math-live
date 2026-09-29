@@ -1,14 +1,14 @@
 // Pautan bayaran ToyyibPay (bil dicipta 27 Sep 2026).
 // Satu fail ini dikongsi oleh semua halaman jualan.
 const PAUTAN = {
-  topik13: "https://toyyibpay.com/aqqgrj7p",  // 13 Topik Panas · RM39
-  topik33: "https://toyyibpay.com/wce5pzw5",  // 13 Topik + 20 topik lagi · RM68
-  set1:    "https://toyyibpay.com/u6rn9g2y",  // Set Ramalan · 1 set · RM7
-  set5:    "https://toyyibpay.com/3nkpx3e0",  // Set Ramalan · 5 set · RM29
-  set10:   "https://toyyibpay.com/f2lqd0yw",  // Set Ramalan · 10 set · RM49
-  set20:   "https://toyyibpay.com/mp99pxc3",  // Set Ramalan · 20 set · RM79
+  topik13: "https://toyyibpay.com/8s3c4rzy",  // 13 Topik Panas · RM39
+  topik33: "https://toyyibpay.com/g58lqf5f",  // 13 Topik + 20 topik lagi · RM68
+  set1:    "https://toyyibpay.com/x0ue7hsq",  // Set Ramalan · 1 set · RM7
+  set5:    "https://toyyibpay.com/iyy62btr",  // Set Ramalan · 5 set · RM29
+  set10:   "https://toyyibpay.com/e2s3q1rg",  // Set Ramalan · 10 set · RM49
+  set20:   "https://toyyibpay.com/lq5vmudl",  // Set Ramalan · 20 set · RM79
   sampel:  "../demo/",                        // Sampel percuma (pratonton)
-  tambah20: "https://toyyibpay.com/6hpdt5ji", // Tambah 20 topik (+RM29) untuk pembeli 13 Topik
+  tambah20: "https://toyyibpay.com/k83lfsbn", // Tambah 20 topik (+RM29) untuk pembeli 13 Topik
   selesai: "../demo/terima-kasih.html"        // Halaman terima kasih
 };
 // ALIRAN: selepas bayar 13/33 Topik, tetapkan URL kembali platform bayaran kepada
